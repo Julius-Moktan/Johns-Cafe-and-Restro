@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html>
-  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,10 +38,10 @@ header{
  #nav-links li, #nav-links a{
   list-style: none;
   text-decoration: none;
-  color: #333333;
+  color:#774936;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.5rem;
  }
  
  .hero{
@@ -61,13 +59,13 @@ header{
  
  .left h1{
    font-family: 'Playfair Display', serif;
-   color:#8b5e3c;
+   color:#774936;
    margin-bottom: 20%;
  }
  
  .left p{
    font-family: 'Aguafina Script', cursive;
-   color:#8b5e3c;
+   color: #6f1d1b;
  }
  .right img{
    width: 100%;
@@ -75,6 +73,53 @@ header{
    display: block;
  }
  
+ .order-btn{
+   margin-top: 30px;
+   background-color: #ede0d4;
+   border-color: #800000;
+   padding: 0.75rem 1.5rem;
+   font-size: 1.1rem;
+   cursor: pointer;
+  border-radius: 5px;
+  color:#6e0d25;
+  font-size: 1.1rem;
+ }
+ 
+ .order-btn:hover{
+   background-color: white;
+   transform: scale(1.05);
+   }
+ 
+ .output{
+  display:none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  justify-content: center; 
+  align-items: center; 
+  padding: 10%;
+  }
+  
+  .output-looks{
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  }
+  
+  .close{
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+  
   </style>
   <body>
     <header>
@@ -89,17 +134,59 @@ header{
     </ul>
   </nav>
 </header>
-<hero class="hero" id="hero">
+<section class="hero" id="hero">
 <div class="left">
     <h1>John's Cafe<br> & <br>Restro</h1>
     <p>“Dive into the flavors of Tibet at John's Cafe and Restro! Friendly vibes, casual comfort, and dishes that steal the spotlight—our Laphing and Keema Noodles are the best in Kathmandu. Come hungry, leave happy!”</p>
+     <button class="order-btn" id="order-btn">Order Online Now</button>
      </div>
   
    <div class="right">
     <img src="https://github.com/Julius-Moktan/Johns-Cafe-and-Restro/blob/main/Laphing-removebg-preview.png?raw=true"style="transform: rotate(-45deg);" >
   </div>
+  </section>
   
-  
-</hero>
+  <div class="output" id="output">
+    <div class="output-looks">
+    <span class="close" id="closeBtn">&times;</span>
+  <h2>Place Your Order</h2><br>
+    <form>
+      <label for="name"> Your Name:</label><br>
+      <input type="text" id="name" required><br><br>
+       <label for="adress"> Your Adress:</label><br>
+      <input type="adress" id="adress" required><br><br>
+       <label for="contact"> Contact:</label><br>
+      <input type="text" id="contact" required><br><br>
+      <label for="food">Choose Food:</label><br>
+      <select id="food" required>
+        <option value="">--Select--</option>
+        <option value="pizza">Laphing</option>
+        <option value="burger">Keema Noodles</option>
+        <option value="pasta">Fried Rice</option>
+        <option value="momo">Mo:mo</option>
+        <option value="chowmin">Chowmin</option>
+      </select><br><br>
+
+      <label for="qty">Quantity:</label><br>
+      <input type="number" id="qty" value="1" min="1" required><br><br>
+
+      <label><input type="radio" name="payment" value="cash" required> Cash</label>
+      <label><input type="radio" name="payment" value="card" required> Card</label><br><br>
+
+      <button type="submit">Place Order</button>
+    </form>
+     </div>
+     </div>
+  <script>
+    const closeBtn = document.getElementById("closeBtn");
+    const orderbtn = document.getElementById("order-btn");
+    const output = document.getElementById("output");
+orderbtn.addEventListener("click", () => {
+  output.style.display = "flex";  
+});
+closeBtn.addEventListener("click", () => {
+  output.style.display = "none";  
+});
+ </script>
   </body>
 </html>
